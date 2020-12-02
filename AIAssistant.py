@@ -72,7 +72,7 @@ def sendEmail(to,content):
 
 def screenshot():
     img = pyautogui.screenshot()
-    img.save("D:\\AI Assistant\\ss.png")
+    img.save("D:\\Final Projects\\AI Assistant\\ss.png")
 
 def cpu():
     usage = str(psutil.cpu_percent())
@@ -102,7 +102,7 @@ if __name__ == "__main__":
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = 'xyz@gmail.com'
+                to = 'mohitdhawan757@gmail.com'
                 sendEmail(to,content)
                 speak("Email has been sent!")
             except Exception as e:
@@ -112,6 +112,8 @@ if __name__ == "__main__":
             speak("What should I search?")
             chromepath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
             search = takeCommand().lower()
+            while(not search):
+                search = takeCommand().lower()
             wb.get(chromepath).open_new_tab(search+'.com')
         elif 'logout' in query:
             os.system("shutdown -l")
@@ -120,7 +122,7 @@ if __name__ == "__main__":
         elif 'restart' in query:
             os.system("shutdown /r /t 1")
         elif 'play songs' in query:
-            songs_dir = "D:\\AI Assistant\\Music"
+            songs_dir = "D:\\Final Projects\\AI Assistant\\Music"
             songs = os.listdir(songs_dir)
             os.startfile(os.path.join(songs_dir,songs[0]))
         elif 'remember that' in query:
